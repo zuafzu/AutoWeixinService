@@ -1,0 +1,12 @@
+spring:
+  server:
+    port: 8888
+  datasource:
+    url: jdbc:mysql://localhost:3306/code
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
