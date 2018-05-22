@@ -15,7 +15,7 @@ public class CodeBean {
     private Integer isActivated;//是否被激活
     private Integer vipType;//会员类型
     private String deviceId;//设备Id
-    private Long ActivatedDate;//激活时间（毫秒数）
+    private Long activatedDate;//激活时间（毫秒数）
     private Long endDate;//终止时间（毫秒数）
     private Long totalTime;//全部可使用时间（毫秒数）
     private Long totalNum;//全部可使用次数
@@ -65,11 +65,11 @@ public class CodeBean {
     }
 
     public Long getActivatedDate() {
-        return ActivatedDate;
+        return activatedDate;
     }
 
     public void setActivatedDate(Long activatedDate) {
-        ActivatedDate = activatedDate;
+        activatedDate = activatedDate;
     }
 
     public Long getEndDate() {
@@ -104,7 +104,7 @@ public class CodeBean {
                 ", isActivated=" + isActivated +
                 ", vipType=" + vipType +
                 ", deviceId='" + deviceId + '\'' +
-                ", ActivatedDate=" + ActivatedDate +
+                ", ActivatedDate=" + activatedDate +
                 ", endDate=" + endDate +
                 ", totalTime=" + totalTime +
                 ", totalNum=" + totalNum +
