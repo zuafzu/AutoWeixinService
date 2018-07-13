@@ -2,19 +2,75 @@ package com.example.demo.controller;
 
 import com.example.demo.bean.CodeBean;
 import com.example.demo.bean.ReturnBean;
+import com.example.demo.bean.WeixinBean;
 import com.example.demo.repository.CodeRepository;
 import com.example.demo.tools.DesTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class MobileController {
 
     @Autowired
     private CodeRepository codeRepository;
+
+    // 获取微信id
+    @PostMapping(value = "/getWeixin")
+    public ReturnBean getWeixin() {
+        ReturnBean returnBean = new ReturnBean();
+        List<WeixinBean> list = new ArrayList<>();
+        // 6.6.5
+        WeixinBean weixinBean1 = new WeixinBean();
+        weixinBean1.setVersion_id("6.6.5");
+        weixinBean1.setWx_yonghuming("com.tencent.mm:id/cdm");
+        weixinBean1.setWx_haoyouliebiao("com.tencent.mm:id/iq");
+        weixinBean1.setWx_gengduo("com.tencent.mm:id/he");
+        weixinBean1.setWx_xiugaibeizhu("com.tencent.mm:id/i3");
+        weixinBean1.setWx_name1("com.tencent.mm:id/ap5");
+        weixinBean1.setWx_name2("com.tencent.mm:id/ap4");
+        list.add(weixinBean1);
+        // 6.6.6
+        WeixinBean weixinBean2 = new WeixinBean();
+        weixinBean2.setVersion_id("6.6.6");
+        weixinBean2.setWx_yonghuming("com.tencent.mm:id/cbx");
+        weixinBean2.setWx_haoyouliebiao("com.tencent.mm:id/j8");
+        weixinBean2.setWx_gengduo("com.tencent.mm:id/hi");
+        weixinBean2.setWx_xiugaibeizhu("com.tencent.mm:id/i8");
+        weixinBean2.setWx_name1("com.tencent.mm:id/ap2");
+        weixinBean2.setWx_name2("com.tencent.mm:id/ap2");
+        list.add(weixinBean2);
+        // 6.6.7
+        WeixinBean weixinBean3 = new WeixinBean();
+        weixinBean3.setVersion_id("6.6.7");
+        weixinBean3.setWx_yonghuming("com.tencent.mm:id/y3");
+        weixinBean3.setWx_haoyouliebiao("com.tencent.mm:id/jq");
+        weixinBean3.setWx_gengduo("com.tencent.mm:id/hh");
+        weixinBean3.setWx_xiugaibeizhu("com.tencent.mm:id/ge");
+        weixinBean3.setWx_name1("com.tencent.mm:id/arc");
+        weixinBean3.setWx_name2("com.tencent.mm:id/arc");
+        list.add(weixinBean3);
+        // 6.7.0
+        WeixinBean weixinBean4 = new WeixinBean();
+        weixinBean3.setVersion_id("6.7.0");
+        weixinBean4.setWx_yonghuming("com.tencent.mm:id/y4");
+        weixinBean4.setWx_haoyouliebiao("com.tencent.mm:id/jr");
+        weixinBean4.setWx_gengduo("com.tencent.mm:id/hi");
+        weixinBean4.setWx_xiugaibeizhu("com.tencent.mm:id/gf");
+        weixinBean4.setWx_name1("com.tencent.mm:id/arj");
+        weixinBean4.setWx_name2("com.tencent.mm:id/arj");
+        list.add(weixinBean4);
+
+        returnBean.setCode("0");
+        returnBean.setMsg("");
+        returnBean.setData(list);
+        return returnBean;
+    }
 
     // 是否可以使用体验会员（0可以，1不可以）
     @PostMapping(value = "/canProbation")
@@ -84,7 +140,7 @@ public class MobileController {
                     codeBean.setEndDate(System.currentTimeMillis() + codeBean.getTotalTime());
                     codeRepository.save(codeBean);
                     returnBean.setCode("0");
-                    returnBean.setMsg("激活码已激活！");
+                    returnBean.setMsg("激活码激活成功！");
                     returnBean.setData(codeBean);
                 } else {
                     returnBean.setCode("3");
