@@ -57,7 +57,7 @@ public class MobileController {
         list.add(weixinBean3);
         // 6.7.0
         WeixinBean weixinBean4 = new WeixinBean();
-        weixinBean3.setVersion_id("6.7.0");
+        weixinBean4.setVersion_id("6.7.0");
         weixinBean4.setWx_yonghuming("com.tencent.mm:id/y4");
         weixinBean4.setWx_haoyouliebiao("com.tencent.mm:id/jr");
         weixinBean4.setWx_gengduo("com.tencent.mm:id/hi");
